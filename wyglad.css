@@ -1,0 +1,252 @@
+:root {
+    /* Light theme (default) variables */
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --heading-color: #2c3e50;
+    --heading-border: #3498db;
+    --subheading-color: #3498db;
+    --link-color: #3498db;
+    --nav-bg: #2c3e50;
+    --nav-link: #7ed6df;
+    --card-bg: white;
+    --button-bg: #3498db;
+    --button-hover: #2980b9;
+    --footer-color: #777;
+    --border-color: #ddd;
+    --table-alt-bg: #f9f9f9;
+}
+
+/* Dark theme variables */
+.dark-theme {
+    --bg-color: #1a1a2e;
+    --text-color: #e1e1e1;
+    --heading-color: #e1e1e1;
+    --heading-border: #4facfe;
+    --subheading-color: #4facfe;
+    --link-color: #4facfe;
+    --nav-bg: #16213e;
+    --nav-link: #4facfe;
+    --card-bg: #222742;
+    --button-bg: #4facfe;
+    --button-hover: #2590eb;
+    --footer-color: #a0a0a0;
+    --border-color: #444;
+    --table-alt-bg: #222742;
+}
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container for content */
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--nav-bg);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: var(--nav-link);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Theme switch */
+.theme-switch {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.theme-switch button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Rest of your styles, using variables */
+nav form {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+nav form label {
+    margin-right: 10px;
+}
+
+nav form input {
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 10px;
+    width: 200px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+nav form button {
+    padding: 8px 12px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+nav form button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Headings */
+h1 {
+    color: var(--heading-color);
+    border-bottom: 2px solid var(--heading-border);
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: var(--subheading-color);
+}
+
+h3 {
+    color: var(--heading-color);
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+}
+
+/* Book list */
+ul li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tr:first-child td {
+    border-top: 1px solid var(--border-color);
+}
+
+table td:first-child {
+    font-weight: bold;
+    width: 30%;
+    background-color: var(--table-alt-bg);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    color: var(--footer-color);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    .theme-switch {
+        margin-top: 15px;
+        align-self: flex-start;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        margin-bottom: 10px;
+    }
+    
+    nav form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav form label,
+    nav form input {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}

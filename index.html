@@ -5,20 +5,27 @@
     <meta charset="UTF-8">
     <meta name="author" content="Mateusz Reszka">
     <meta name="description" content="Katalog książek z mojej kolekcji">
+    <link rel="stylesheet" href="wyglad.css">
 </head>
-<nav>
-    <ul>
-        <li><a href="index.html">Strona główna</a></li>
-        <li><a href="book.html">Dziwaczne przygody Jonasza Jorkowskiego</a></li>
-        <!-- Tutaj możesz dodać więcej linków do innych książek w przyszłości -->
-    </ul>
-    <form>
-        <label for="search">Szukaj książki:</label>
-        <input type="text" id="search" name="search">
-        <button type="submit">Szukaj</button>
-    </form>
-</nav>
 <body>
+    <nav>
+        <div class="nav-content">
+            <ul>
+                <li><a href="index.html">Strona główna</a></li>
+                <li><a href="book.html">Dziwaczne przygody Jonasza Jorkowskiego</a></li>
+                <!-- Tutaj możesz dodać więcej linków do innych książek w przyszłości -->
+            </ul>
+            <form>
+                <label for="search">Szukaj książki:</label>
+                <input type="text" id="search" name="search">
+                <button type="submit">Szukaj</button>
+            </form>
+        </div>
+        <div class="theme-switch">
+            <button id="theme-toggle">Przełącz motyw</button>
+        </div>
+    </nav>
+
     <h1>Moja Kolekcja Książek</h1>
     
     <p>Witaj na stronie z moją kolekcją książek. Poniżej znajdziesz listę dostępnych pozycji.</p>
@@ -36,7 +43,34 @@
     </ul>
     
     <footer>
-        <p>&copy; 2025 Moja Kolekcja Książek. Wszelkie prawa zastrzeżone.</p>
+        <p>&copy; 2025 Mateusz Reszka. MIT license.</p>
     </footer>
+
+    <script>
+        // Theme switcher logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // Check for saved theme preference or use system preference
+            const currentTheme = localStorage.getItem('theme') || 
+                                (prefersDarkScheme.matches ? 'dark' : 'light');
+            
+            // Apply the theme
+            if (currentTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeToggle.textContent = 'Jasny motyw';
+            } else {
+                themeToggle.textContent = 'Ciemny motyw';
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                const isDark = document.body.classList.toggle('dark-theme');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                themeToggle.textContent = isDark ? 'Jasny motyw' : 'Ciemny motyw';
+            });
+        });
+    </script>
 </body>
 </html>
